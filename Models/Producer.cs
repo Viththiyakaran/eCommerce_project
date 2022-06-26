@@ -10,8 +10,11 @@ namespace eCommerce_project.Models
     {
         [Key]
         public int ProducerID { get; set; }
+        [Display(Name = "ProfilePicture")]
         public string ProfilePictureURL { get; set; }
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
+        [Display(Name = "Bio")]
         public string Bio { get; set; }
 
         public List<Movie> Movies { get; set; }
