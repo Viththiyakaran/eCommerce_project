@@ -18,7 +18,8 @@ namespace eCommerce_project.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var All_Movie = await _context.Movies.ToListAsync();
+            //We can inculde Two modes using Incude
+            var All_Movie = await _context.Movies.Include( c=>c.Cinema).ToListAsync();
             return View(All_Movie);
         }
     }
