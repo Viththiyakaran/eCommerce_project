@@ -19,7 +19,7 @@ namespace eCommerce_project.Controllers
         public async Task<IActionResult> Index()
         {
             var All_Movie = await _context.Movies.ToListAsync();
-            return View();
+            return View(All_Movie);
         }
     }
 }
