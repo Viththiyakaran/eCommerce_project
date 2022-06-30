@@ -1,4 +1,5 @@
 using eCommerce_project.Data;
+using eCommerce_project.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,14 @@ namespace eCommerce_project
         {
             //DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+
+            //Service Configuration
+            services.AddScoped<IActorService, ActorService>();
+            
             services.AddControllersWithViews();
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

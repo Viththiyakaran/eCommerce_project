@@ -1,4 +1,5 @@
 ﻿using eCommerce_project.Data;
+using eCommerce_project.Data.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,15 +10,15 @@ namespace eCommerce_project.Controllers
 {
     public class ActorController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IActorService _service;
 
-        public ActorController(AppDbContext context)
+        public ActorController(IActorService service)
         {
-            _context = context;
+            _service = service;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Actors.ToList();
+            var data = await _service.GetAll();
             return View(data);
         }
     }

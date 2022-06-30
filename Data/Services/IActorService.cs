@@ -8,7 +8,7 @@ namespace eCommerce_project.Data.Services
 {
      public interface IActorService
     {
-        IEnumerable<Actor> GetAl();
+        Task<IEnumerable<Actor>> GetAll();
 
         Actor GetById(int id);
 
